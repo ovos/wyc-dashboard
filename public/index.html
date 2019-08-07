@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Time2Walk Dashboard</title>
+	<link rel="stylesheet" href="themes/default/styles.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display|Slabo+27px&amp;display=swap">
+	<script src="scripts/main.bundle.js"></script>
+</head>
+<body>
+<header id="header">
+	<h1>Time2Walk</h1>
+	<h2>Eure Schritte visualisiert im Live-Dashboard!</h2>
+</header>
+
+<section id="content">
+	<div class="content-legend">
+		<p>Berechnungen auf Basis von <span id="user-count-value">...</span> SpielerInnen. Angenommene Schrittlänge:
+			<span id="step-length-value">...</span></p>
+	</div>
+	<div class="stats">
+		<div id="steps-total" class="stat">
+			<span class="name">Schritte insgesamt</span>
+			<span class="value">...</span>
+			<span class="value-meter">...</span>
+			<span class="legend">Gesamtschrittanzahl aller SpielerInnen</span>
+		</div>
+		<div id="steps-avg" class="stat">
+			<span class="name">Ø Schritte pro SpielerIn</span>
+			<span class="value">...</span>
+			<span class="value-meter">...</span>
+			<span class="legend">Schrittanzahl einer durchschnittlichen SpielerIn</span>
+		</div>
+		<div id="steps-daily-avg" class="stat">
+			<span class="name">Ø Schritte pro Tag pro SpielerIn</span>
+			<span class="value">...</span>
+			<span class="value-meter">...</span>
+			<span class="legend">Schrittanzahl einer durchschnittlichen SpielerIn pro Tag</span>
+		</div>
+		<div id="steps-best-day" class="stat">
+			<span class="name">Ø Schritte Bester Tag</span>
+			<span class="value">...</span>
+			<span class="value-meter">...</span>
+			<span class="legend">Durchschnittlich beste Schrittanzahl aller SpielerInnen</span>
+		</div>
+		<div id="checkins-total" class="stat">
+			<span class="name">Portal Check-Ins insgesamt</span>
+			<span class="value">...</span>
+			<span class="legend">Summe aller Check-Ins aller SpielerInnen</span>
+		</div>
+		<div id="checkins-avg" class="stat">
+			<span class="name">Portal Check-Ins Ø</span>
+			<span class="value">...</span>
+			<span class="legend">Durchschnitt aller Check-Ins aller SpielerInnen</span>
+		</div>
+	</div>
+	<div class="charts">
+		<div id="distance-circle" class="chart">
+			<div class="chart-content"></div>
+		</div>
+		<div id="step-goals-bars" class="chart">
+			<div class="chart-content"></div>
+		</div>
+		<div id="playertype-pie" class="chart">
+			<div class="chart-content"></div>
+		</div>
+		<div id="enjoys-walking-pie" class="chart">
+			<div class="chart-content"></div>
+		</div>
+	</div>
+</section>
+
+<footer id="footer">
+	<p>Wie beginnt man als einzelne Person die Welt zu retten? Schritt für Schritt! - <strong>#time2walk</strong> - Mehr
+		Informationen zum Projekt: <a href="https://time2walk.at/" target="_blank">time2walk.at</a></p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,202 @@
+@orange: rgba(237,177,100,1);
+@blue: rgba(94,173,186,1);
+
+* {
+	box-sizing: border-box;
+}
+
+strong, b {
+	font-weight: 700;
+}
+
+html, body {
+	height: 100%;
+}
+
+body {
+	font-family: "Slabo 27px", sans-serif;
+	font-size: 16px;
+	line-height: 1.4;
+
+	h1, h2 {
+		font-weight: 700;
+		font-family: "Playfair Display", sans-serif;
+	}
+
+	h1 {
+		font-size: 32px;
+		margin: 8px auto;
+	}
+	h2 {
+		font-size: 20px;
+		margin: 2px auto;
+	}
+
+	display: flex;
+	flex-flow: column nowrap;
+
+	svg * {
+		font-family: "Slabo 27px" !important;
+	}
+}
+
+.box() {
+	background: darken(#fff, 2.5%);
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+#header {
+	position: relative;
+	z-index: 1;
+	flex: 1 1 auto;
+	padding: 20px 20px;
+	.box();
+
+	h1 {
+		display: inline-block;
+		width: 100%;
+		height: 60px;
+		margin: 0;
+		background: url('../images/logo.png') no-repeat center center;
+		background-size: contain;
+		overflow: hidden;
+		text-indent: -999999px;
+	}
+
+	text-align: center;
+}
+
+#content {
+	position: relative;
+	flex: 1 1 100%;
+	padding: 40px 20px;
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: flex-start;
+	background: url('../images/map-bg.jpg') no-repeat center center;
+	background-size: cover;
+
+	&:after {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: fade(darken(#fff, 10), 90);
+	}
+
+	> * {
+		position: relative;
+		z-index: 1;
+	}
+
+	.content-legend {
+		text-align: center;
+		margin: 0 auto 20px;
+		flex: 0 0 auto;
+	}
+
+	.stats {
+		@loc-gutter-v: 10px;
+		@loc-gutter-h: 10px;
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: center;
+		margin: (@loc-gutter-h * -1) (@loc-gutter-v * -1);
+
+		.stat {
+			display: flex;
+			flex-flow: column nowrap;
+			justify-content: space-between;
+
+			width: 260px;
+			.box();
+			padding: 10px 15px;
+			margin: @loc-gutter-h @loc-gutter-v;
+
+			.name,
+			.value,
+			.legend,
+			.value-meter {
+				flex: 0 1 auto;
+				display: block;
+			}
+
+			.name,
+			.value,
+			.value-meter {
+				text-align: center;
+			}
+
+			.name {
+				font-size: 20px;
+				font-weight: 700;
+			}
+
+			.value {
+				font-size: 32px;
+				font-weight: 700;
+				margin: 16px 0 16px;
+			}
+			.value-meter {
+				font-size: 20px;
+				font-weight: 400;
+				margin: -16px 0 16px;
+			}
+
+			.legend {
+				flex: 1 0 auto;
+				font-size: 14px;
+				flex-base: 100%;
+				display: flex;
+				align-items: flex-end;
+			}
+		}
+	}
+
+	.charts {
+		padding-top: 30px;
+		@loc-gutter-v: 10px;
+		@loc-gutter-h: 10px;
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: center;
+		margin: (@loc-gutter-h * -1) (@loc-gutter-v * -1);
+
+		.chart {
+			width: 540px;
+			.box();
+			padding: 10px 15px;
+			margin: @loc-gutter-h @loc-gutter-v;
+
+			.apexcharts-title-text {
+				font-weight: 700;
+			}
+
+			.apexcharts-canvas {
+				margin: 0 auto;
+			}
+
+			@media (max-width: 600px) {
+				width: auto;
+				flex: 1 0 320px;
+				max-width: 540px;
+			}
+		}
+	}
+}
+
+#footer {
+	position: relative;
+	z-index: 1;
+	flex: 1 1 auto;
+	padding: 20px 20px;
+	text-align: center;
+	.box();
+	box-shadow: 0 -2px 2px 0 rgba(0,0,0,0.2);
+
+	a {
+		color: darken(@blue, 12%);
+	}
+}

@@ -1,0 +1,41 @@
+{
+  "name": "wyc-dashboard",
+  "version": "1.0.0",
+  "description": "Walk Your City Dashboard",
+  "private": true,
+  "scripts": {
+    "dev:setup": "npm i -g yarn less && yarn install",
+    "webpack": "webpack"
+  },
+  "browserslist": [
+    "> 2%",
+    "last 2 versions",
+    "ie 10",
+    "iOS 8",
+    "android 4"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "babel-loader": "^8.0.6",
+    "browser-sync": "^2.26.7",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-debug": "^4.0.0",
+    "gulp-if": "^3.0.0",
+    "gulp-less": "^4.0.1",
+    "gulp-less-reporter": "^0.0.3",
+    "gulp-plumber": "^1.2.1",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-util": "^3.0.8",
+    "jquery": "^3.4.1",
+    "less-plugin-autoprefix": "^2.0.0",
+    "parse-less-import": "^0.0.1",
+    "webpack": "^4.39.1",
+    "webpack-cli": "^3.3.6",
+    "webpack-merge": "^4.2.1"
+  },
+  "dependencies": {
+    "apexcharts": "^3.8.4"
+  }
+}
