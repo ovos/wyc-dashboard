@@ -14,7 +14,7 @@ $(function () {
 		setTimeout(function (){
 			site.toggleApiError(false);
 			fetchData();
-		}, 3600000);
+		}, 14400000); // 1000 milliseconds * 60 seconds * 60 minutes * 4 hours
 	};
 	let handleSuccess = function(data) {
 		site.init(data);
@@ -22,7 +22,7 @@ $(function () {
 
 		setTimeout(function (){
 			fetchData();
-		}, /*3600000*/ 10000);
+		}, 14400000); // 1000 milliseconds * 60 seconds * 60 minutes * 4 hours
 	};
 
 	let fetchData = function (){
@@ -34,7 +34,6 @@ $(function () {
 				"Authorization": 'Bearer ' + api.token
 			},
 			complete: function (jqXHR, status) {
-				console.log(jqXHR, status);
 				if(status !== 'success') {
 					handleError();
 				}

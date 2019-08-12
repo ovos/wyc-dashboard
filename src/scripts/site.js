@@ -66,6 +66,7 @@ export let site = {
 		const moonDistanceProgress = Math.round((filteredData.steps_total * step_length / comparisonData.moonDistance.value) * 100);
 
 		// charts
+		window.myCharts = window.myCharts || [];
 		let distanceCircleOptions = {
 			chart: {
 				height: 400,
@@ -112,11 +113,20 @@ export let site = {
 					color: '#000000'
 				},
 			}
+		},
+			distanceCircleChart;
+		if(myCharts['distanceCircle']) {
+			distanceCircleChart = myCharts['distanceCircle'];
+			distanceCircleChart.updateSeries(distanceCircleOptions.series);
+		} else {
+			distanceCircleChart = new ApexCharts(
+				$("#distance-circle .chart-content").get(0),
+				distanceCircleOptions
+			);
+			distanceCircleChart.render();
+			myCharts['distanceCircle'] = distanceCircleChart;
 		}
-		let distanceCircleChart = new ApexCharts(
-			$("#distance-circle .chart-content").get(0),
-			distanceCircleOptions
-		);
+
 		let playerTypePieOptions = {
 			chart: {
 				width: '90%',
@@ -161,61 +171,20 @@ export let site = {
 					color: '#000'
 				},
 			}
+		},
+			playerTypePieChart;
+		if(myCharts['playerTypePie']) {
+			playerTypePieChart = myCharts['playerTypePie']
+			playerTypePieChart.updateSeries(playerTypePieOptions.series);
+		} else {
+			playerTypePieChart = new ApexCharts(
+				$("#playertype-pie .chart-content").get(0),
+				playerTypePieOptions
+			);
+			playerTypePieChart.render();
+			myCharts['playerTypePie'] = playerTypePieChart;
 		}
-		let playerTypePieChart = new ApexCharts(
-			$("#playertype-pie .chart-content").get(0),
-			playerTypePieOptions
-		);
-		let enjoysWalkingPieOptions = {
-			chart: {
-				width: '90%',
-				type: 'pie',
-			},
-			colors: ['rgba(200,107,107,1)', 'rgba(194,227,123,1)'],
-			dataLabels: {
-				enabled: true,
-				formatter: function (val, opts) {
-					return opts.w.globals.seriesNames[opts.seriesIndex]
-				},
-				style: {
-					fontSize: '20px',
-					colors: ['rgba(0,0,0,1)']
-				},
-				dropShadow: {
-					enabled: false
-				}
-			},
-			series: [(count - filteredData.enjoys_walking_count), filteredData.enjoys_walking_count],
-			labels: ['Nein', 'Ja'],
-			legend: {
-				show: true,
-				position: 'bottom',
-				fontSize: '20px',
-				offsetX: 0,
-				offsetY: 0,
-				formatter: function (val, opts) {
-					return opts.w.globals.series[opts.seriesIndex] + '% (' + val + ')'
-				},
-				floating: false,
-			},
-			title: {
-				text: "Gehen unsere SpielerInnen gerne zu Fuß?",
-				align: 'center',
-				margin: 40,
-				offsetX: 0,
-				offsetY: 20,
-				floating: false,
-				style: {
-					fontSize: '20px',
-					color: '#000000'
-				},
-			}
-		}
-		let enjoysWalkingPieChart = new ApexCharts(
-			$("#enjoys-walking-pie .chart-content").get(0),
-			enjoysWalkingPieOptions
-		);
-		let barColors = ['rgba(237,177,100,1)', 'rgba(94,173,186,1)', 'rgba(175,116,207,1)'];
+
 		let stepGoalsBarsOptions = {
 			chart: {
 				width: '100%',
@@ -225,7 +194,7 @@ export let site = {
 					show: false
 				}
 			},
-			colors: barColors,
+			colors: ['rgba(237,177,100,1)', 'rgba(94,173,186,1)', 'rgba(175,116,207,1)'],
 			plotOptions: {
 				bar: {
 					columnWidth: '45%',
@@ -236,7 +205,7 @@ export let site = {
 				enabled: false,
 			},
 			series: [{
-				name: "Ziel erreicht",
+				name: 'Ziel erreicht',
 				data: [filteredData.step_goal_1_reached, filteredData.step_goal_2_reached, filteredData.step_goal_3_reached]
 			}],
 			xaxis: {
@@ -288,21 +257,94 @@ export let site = {
 					color: '#000'
 				},
 			}
+		},
+			stepGoalsBarsChart;
+		if(myCharts['stepGoalsBars']) {
+			stepGoalsBarsChart = myCharts['stepGoalsBars'];
+			stepGoalsBarsChart.updateSeries(stepGoalsBarsOptions.series);
+		} else {
+			stepGoalsBarsChart = new ApexCharts(
+				$("#step-goals-bars .chart-content").get(0),
+				stepGoalsBarsOptions
+			);
+			stepGoalsBarsChart.render();
+			myCharts['stepGoalsBars'] = stepGoalsBarsChart;
 		}
-		let stepGoalsBarsChart = new ApexCharts(
-			$("#step-goals-bars .chart-content").get(0),
-			stepGoalsBarsOptions
-		);
-		distanceCircleChart.render();
-		playerTypePieChart.render();
-		enjoysWalkingPieChart.render();
-		stepGoalsBarsChart.render();
+
+		let enjoysWalkingPieOptions = {
+				chart: {
+					width: '90%',
+					type: 'pie',
+				},
+				colors: ['rgba(200,107,107,1)', 'rgba(194,227,123,1)'],
+				dataLabels: {
+					enabled: true,
+					formatter: function (val, opts) {
+						return opts.w.globals.seriesNames[opts.seriesIndex]
+					},
+					style: {
+						fontSize: '20px',
+						colors: ['rgba(0,0,0,1)']
+					},
+					dropShadow: {
+						enabled: false
+					}
+				},
+				series: [(count - filteredData.enjoys_walking_count), filteredData.enjoys_walking_count],
+				labels: ['Nein', 'Ja'],
+				legend: {
+					show: true,
+					position: 'bottom',
+					fontSize: '20px',
+					offsetX: 0,
+					offsetY: 0,
+					formatter: function (val, opts) {
+						return opts.w.globals.series[opts.seriesIndex] + '% (' + val + ')'
+					},
+					floating: false,
+				},
+				title: {
+					text: "Gehen unsere SpielerInnen gerne zu Fuß?",
+					align: 'center',
+					margin: 40,
+					offsetX: 0,
+					offsetY: 20,
+					floating: false,
+					style: {
+						fontSize: '20px',
+						color: '#000000'
+					},
+				}
+			},
+			enjoysWalkingPieChart;
+		if(myCharts['enjoysWalkingPie']) {
+			enjoysWalkingPieChart = myCharts['enjoysWalkingPie'];
+			enjoysWalkingPieChart.updateSeries(enjoysWalkingPieOptions.series);
+		} else {
+			enjoysWalkingPieChart = new ApexCharts(
+				$("#enjoys-walking-pie .chart-content").get(0),
+				enjoysWalkingPieOptions
+			);
+			enjoysWalkingPieChart.render();
+			myCharts['enjoysWalkingPie'] = enjoysWalkingPieChart;
+		}
 
 		// stats
 		let $userCountValue = $('#user-count-value');
 		$userCountValue.html(`${count}`);
 		let $legendStepLengthValue = $('#step-length-value');
 		$legendStepLengthValue.html(`${(step_length * 1000).toLocaleString('de-DE')} cm`);
+		let $lastUpdateValue = $('#last-update-value');
+		let date = new Date(),
+			datevalues = [
+				date.getDate(),
+				date.getMonth()+1
+			],
+			dateTimeValues = [
+				date.getHours(),
+				date.getMinutes()
+			];
+		$lastUpdateValue.html(datevalues.join('.') + '. ' + dateTimeValues.join(':'));
 
 		let $stepsTotal = $('#steps-total');
 		$('.value', $stepsTotal).html(filteredData.steps_total.toLocaleString('de-DE'));
