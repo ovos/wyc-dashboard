@@ -3,6 +3,15 @@ import {comparisonData} from './data/comparisonData.js';
 
 export let site = {
 	init: function (data) {
+		const colors = {
+			blue: 'rgba(94,173,186,1)',
+			green: 'rgba(194,227,123,1)',
+			orange: 'rgba(239,165,107,1)',
+			red: 'rgba(200,107,107,1)',
+			purple: 'rgba(175,116,207,1)',
+			black: 'rgba(0,0,0,1)'
+		};
+
 		const step_length = 0.65;
 		let count = 0,
 			playertype_wenig = 0,
@@ -72,7 +81,7 @@ export let site = {
 				height: 400,
 				type: 'radialBar',
 			},
-			colors: ['rgba(200,107,107,1)', 'rgba(175,116,207,1)', 'rgba(94,173,186,1)', 'rgba(194,227,123,1)', 'rgba(237,177,100,1)'],
+			colors: [colors.red, colors.purple, colors.blue, colors.green, colors.orange],
 			plotOptions: {
 				radialBar: {
 					hollow: {
@@ -132,7 +141,7 @@ export let site = {
 				width: '90%',
 				type: 'pie',
 			},
-			colors: ['rgba(237,177,100,1)', 'rgba(94,173,186,1)', 'rgba(194,227,123,1)', 'rgba(175,116,207,1)', 'rgba(200,107,107,1)'],
+			colors: [colors.orange, colors.blue, colors.green, colors.purple, colors.red],
 			dataLabels: {
 				enabled: true,
 				formatter: function (val, opts) {
@@ -140,7 +149,7 @@ export let site = {
 				},
 				style: {
 					fontSize: '20px',
-					colors: ['rgba(0,0,0,1)']
+					colors: [colors.black]
 				},
 				dropShadow: {
 					enabled: false
@@ -194,7 +203,7 @@ export let site = {
 					show: false
 				}
 			},
-			colors: ['rgba(237,177,100,1)', 'rgba(94,173,186,1)', 'rgba(175,116,207,1)'],
+			colors: [colors.orange, colors.blue, colors.purple],
 			plotOptions: {
 				bar: {
 					columnWidth: '45%',
@@ -276,7 +285,7 @@ export let site = {
 					width: '90%',
 					type: 'pie',
 				},
-				colors: ['rgba(200,107,107,1)', 'rgba(194,227,123,1)'],
+				colors: [colors.red, colors.green],
 				dataLabels: {
 					enabled: true,
 					formatter: function (val, opts) {
@@ -284,7 +293,7 @@ export let site = {
 					},
 					style: {
 						fontSize: '20px',
-						colors: ['rgba(0,0,0,1)']
+						colors: [colors.black]
 					},
 					dropShadow: {
 						enabled: false
