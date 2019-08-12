@@ -1,4 +1,5 @@
 import ApexCharts from 'apexcharts';
+import {comparisonData} from './data/comparisonData.js';
 
 export let site = {
 	init: function (data) {
@@ -56,36 +57,6 @@ export let site = {
 			steps_best_day: steps_best_day
 		};
 
-		const comparisonData = {
-			moonDistance: {
-				name: "Distanz: Erde-Mond",
-				value: 384400000
-			},
-			earthCircumfence: {
-				name: "Erdumfang",
-				value: 40075000
-			},
-			transsiberiaRailway: {
-				name: 'Transsibirische Eisenbahn',
-				value: 9298000
-			},
-			jakobsPath: {
-				name: "Jakobsweg (Camino Francés)",
-				value: 800000,
-			},
-			austriaWidth: {
-				name: "Österreichs Grenzen: Ost-West",
-				value: 575000
-			},
-			austriaHeight: {
-				name: "Österreichs Grenzen: Nord-Süd",
-				value: 292370
-			},
-			grazVienna: {
-				name: "Luftlinie: Graz-Wien",
-				value: 144860
-			}
-		};
 		const grazViennaProgress = Math.round((filteredData.steps_total * step_length / comparisonData.grazVienna.value) * 100);
 		const austriaHeightProgress = Math.round((filteredData.steps_total * step_length / comparisonData.austriaHeight.value) * 100);
 		const austriaWidthProgress = Math.round((filteredData.steps_total * step_length / comparisonData.austriaWidth.value) * 100);
@@ -354,5 +325,11 @@ export let site = {
 
 		let $checkinsAvg = $('#checkins-avg');
 		$('.value', $checkinsAvg).html(filteredData.checkins_avg.toLocaleString('de-DE'));
+	},
+	toggleLoading: function(toggle) {
+		$('body').toggleClass('loading', toggle);
+	},
+	toggleApiError: function(toggle) {
+		$('body').toggleClass('api-error', toggle);
 	}
 };

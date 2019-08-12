@@ -1,5 +1,8 @@
-@orange: rgba(237,177,100,1);
 @blue: rgba(94,173,186,1);
+@green: rgba(194,227,123,1);
+@orange: rgba(237,177,100,1);
+@red: rgba(200,107,107,1);
+@purple: rgba(175,116,207,1);
 
 * {
 	box-sizing: border-box;
@@ -38,10 +41,51 @@ body {
 	svg * {
 		font-family: "Slabo 27px" !important;
 	}
+
+	&.loading,
+	&.api-error {
+		position: fixed;
+		z-index: 0;
+
+		#content {
+			filter: blur(4px);
+			&:before {
+				content: "";
+				display: block;
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background: fade(#fff, 75);
+				z-index: 999;
+			}
+		}
+		&:after {
+			content: "LADE DATEN...";
+			display: inline-block;
+			padding: 40px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			font-size: 36px;
+			font-weight: bold;
+			font-family: "Playfair Display", sans-serif;
+			transform: translate(-50%, -50%);
+			.box();
+			z-index: 1000;
+		}
+	}
+	&.api-error {
+		&:after {
+			content: "FEHLER (╯°□°)╯︵ ┻━┻";
+			background-color: @red;
+		}
+	}
 }
 
 .box() {
-	background: darken(#fff, 2.5%);
+	background: darken(#fff, 0%);
 	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 }
 
@@ -83,7 +127,7 @@ body {
 		left: 0;
 		right: 0;
 		bottom: 0;
-		background: fade(darken(#fff, 10), 90);
+		background: fade(darken(#fff, 3%), 90%);
 	}
 
 	> * {
@@ -121,6 +165,7 @@ body {
 			.value-meter {
 				flex: 0 1 auto;
 				display: block;
+				line-height: 1.2;
 			}
 
 			.name,
@@ -132,17 +177,18 @@ body {
 			.name {
 				font-size: 20px;
 				font-weight: 700;
+				font-family: "Slabo 27px", sans-serif;
 			}
 
 			.value {
 				font-size: 32px;
 				font-weight: 700;
-				margin: 16px 0 16px;
+				margin: 12px 0 12px;
 			}
 			.value-meter {
 				font-size: 20px;
 				font-weight: 400;
-				margin: -16px 0 16px;
+				margin: -12px 0 12px;
 			}
 
 			.legend {
