@@ -346,12 +346,12 @@ export let site = {
 		let $lastUpdateValue = $('#last-update-value');
 		let date = new Date(),
 			datevalues = [
-				date.getDate(),
-				date.getMonth()+1
+				("0" + date.getDate()).slice(-2),
+				("0" + (date.getMonth()+1)).slice(-2)
 			],
 			dateTimeValues = [
-				date.getHours(),
-				date.getMinutes()
+				("0" + date.getHours()).slice(-2),
+				("0" + date.getMinutes()).slice(-2)
 			];
 		$lastUpdateValue.html(datevalues.join('.') + '. ' + dateTimeValues.join(':'));
 
