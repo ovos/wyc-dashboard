@@ -82,7 +82,7 @@ body.api-error:after {
 }
 body.api-error:after {
   content: "FEHLER (╯°□°)╯︵ ┻━┻";
-  background-color: #c86b6b;
+  background-color: #ab6c63;
 }
 #header {
   position: relative;
@@ -292,7 +292,7 @@ body.api-error:after {
   box-shadow: 0 -2px 2px 0 rgba(0, 0, 0, 0.2);
 }
 #footer a {
-  color: #ed9754;
+  color: #bc8b39;
 }
 
 /*# sourceMappingURL=styles.css.map */

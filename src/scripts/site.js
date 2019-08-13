@@ -4,11 +4,11 @@ import {comparisonData} from './data/comparisonData.js';
 export let site = {
 	init: function (data) {
 		const colors = {
-			blue: 'rgba(94,173,186,1)',
-			green: 'rgba(194,227,123,1)',
-			orange: 'rgba(239,165,107,1)',
-			red: 'rgba(200,107,107,1)',
-			purple: 'rgba(175,116,207,1)',
+			blue: 'rgba(153, 180, 185, 1)',
+			green: 'rgba(150, 167, 123, 1)',
+			yellow: 'rgba(237, 205, 143, 1)',
+			orange: 'rgba(188, 139, 57, 1)',
+			red: 'rgba(171, 108, 99, 1)',
 			black: 'rgba(0,0,0,1)'
 		};
 
@@ -81,7 +81,7 @@ export let site = {
 				height: 400,
 				type: 'radialBar',
 			},
-			colors: [colors.red, colors.purple, colors.blue, colors.green, colors.orange],
+			colors: [colors.red, colors.orange, colors.yellow, colors.green, colors.blue],
 			plotOptions: {
 				radialBar: {
 					hollow: {
@@ -141,7 +141,7 @@ export let site = {
 				width: '90%',
 				type: 'pie',
 			},
-			colors: [colors.orange, colors.blue, colors.green, colors.purple, colors.red],
+			colors: [colors.red, colors.orange, colors.green],
 			dataLabels: {
 				enabled: true,
 				formatter: function (val, opts) {
@@ -203,7 +203,7 @@ export let site = {
 					show: false
 				}
 			},
-			colors: [colors.orange, colors.blue, colors.purple],
+			colors: [colors.green, colors.blue, colors.orange],
 			plotOptions: {
 				bar: {
 					columnWidth: '45%',
