@@ -27,9 +27,6 @@ export let site = {
 			steps_best_day = 0;
 
 		for (let i = 0; i < data.length; i++) {
-			if (data[i]["app_starts"] < 1 || !data[i]["playertype"]) {
-				continue;
-			}
 			playertype_wenig += data[i]["playertype"] === 1 ? 1 : 0;
 			playertype_mittel += data[i]["playertype"] === 2 ? 1 : 0;
 			playertype_viel += data[i]["playertype"] === 3 ? 1 : 0;
@@ -342,18 +339,19 @@ export let site = {
 		let $userCountValue = $('#user-count-value');
 		$userCountValue.html(`${count}`);
 		let $legendStepLengthValue = $('#step-length-value');
-		$legendStepLengthValue.html(`${(step_length * 1000).toLocaleString('de-DE')} cm`);
+		$legendStepLengthValue.html(`${(step_length * 100).toLocaleString('de-DE')} cm`);
 		let $lastUpdateValue = $('#last-update-value');
 		let date = new Date(),
 			datevalues = [
 				("0" + date.getDate()).slice(-2),
-				("0" + (date.getMonth()+1)).slice(-2)
+				("0" + (date.getMonth()+1)).slice(-2),
+				date.getFullYear()
 			],
 			dateTimeValues = [
 				("0" + date.getHours()).slice(-2),
 				("0" + date.getMinutes()).slice(-2)
 			];
-		$lastUpdateValue.html(datevalues.join('.') + '. ' + dateTimeValues.join(':'));
+		$lastUpdateValue.html(/*datevalues.join('.') + */ 'heute ' + dateTimeValues.join(':'));
 
 		let $stepsTotal = $('#steps-total');
 		$('.value', $stepsTotal).html(filteredData.steps_total.toLocaleString('de-DE'));

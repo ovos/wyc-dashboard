@@ -9,10 +9,12 @@ export const api = {
 		'checkins_total',
 		'walk_minutes_per_day',
 		'enjoys_walking',
-		'app_starts',
 		'playertype',
 		'step_goal_1_reached',
 		'step_goal_2_reached',
 		'step_goal_3_reached'
+	],
+	filters: [
+		'filter[created_on][gt]=2019-07-30'
 	]
 };

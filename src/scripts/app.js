@@ -6,7 +6,11 @@ import {api} from './api.js';
 
 $(function () {
 
-	let dataUrl = api.baseUrl + api.endpoint + '?fields=' + api.fields.join(',');
+	let dataUrl =
+		api.baseUrl +
+		api.endpoint +
+		'?fields=' + api.fields.join(',') +
+		'&' + api.filters.join('&');
 
 	let handleError = function() {
 		site.toggleApiError(true);

@@ -150,6 +150,7 @@ body.api-error:after {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
+  text-shadow: -1px 1px 5px #fff, 1px -1px 5px #fff, -1px -1px 5px #fff, 1px 1px 5px #fff;
 }
 #content .stats {
   display: -webkit-box;
@@ -235,6 +236,9 @@ body.api-error:after {
   -ms-flex-align: end;
   align-items: flex-end;
 }
+#content .stats .stat#steps-best-day {
+  display: none;
+}
 #content .charts {
   padding-top: 30px;
   display: -webkit-box;
@@ -265,6 +269,9 @@ body.api-error:after {
 }
 #content .charts .chart .apexcharts-canvas {
   margin: 0 auto;
+}
+#content .charts .chart#enjoys-walking-pie {
+  display: none;
 }
 @media (max-width: 600px) {
   #content .charts .chart {
