@@ -3,6 +3,7 @@ window.$ = window.jQuery = jQuery;
 // import {data} from './data.js';
 import {site} from './site.js';
 import {api} from './api.js';
+import {options} from './options.js';
 
 $(function () {
 
@@ -21,7 +22,7 @@ $(function () {
 		}, 14400000); // 1000 milliseconds * 60 seconds * 60 minutes * 4 hours
 	};
 	let handleSuccess = function(data) {
-		site.init(data);
+		site.init(data, options);
 		site.toggleLoading(false);
 
 		setTimeout(function (){

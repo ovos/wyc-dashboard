@@ -236,9 +236,6 @@ body.api-error:after {
   -ms-flex-align: end;
   align-items: flex-end;
 }
-#content .stats .stat#steps-best-day {
-  display: none;
-}
 #content .charts {
   padding-top: 30px;
   display: -webkit-box;
@@ -269,9 +266,6 @@ body.api-error:after {
 }
 #content .charts .chart .apexcharts-canvas {
   margin: 0 auto;
-}
-#content .charts .chart#enjoys-walking-pie {
-  display: none;
 }
 @media (max-width: 600px) {
   #content .charts .chart {

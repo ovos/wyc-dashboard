@@ -2,7 +2,7 @@ import ApexCharts from 'apexcharts';
 import {comparisonData} from './data/comparisonData.js';
 
 export let site = {
-	init: function (data) {
+	init: function (data, options) {
 		const colors = {
 			blue: 'rgba(153, 180, 185, 1)',
 			green: 'rgba(150, 167, 123, 1)',
@@ -374,6 +374,23 @@ export let site = {
 
 		let $checkinsAvg = $('#checkins-avg');
 		$('.value', $checkinsAvg).html(filteredData.checkins_avg.toLocaleString('de-DE'));
+
+		// toggle stats and charts visibility
+		$('.stats > *, .charts > *', '#content').each(function(){
+			let $el = $(this),
+				id = $el.get(0).id,
+				hide = options.hideCharts.includes(id),
+				url_string = window.location.href,
+				url = new URL(url_string);
+
+			options.hideCharts.forEach(function(itemId) {
+				if(itemId === id) {
+					hide = (url.searchParams.get(itemId) !== null) ? false : hide;
+				}
+			});
+			$el.toggle(!hide);
+
+		});
 	},
 	toggleLoading: function(toggle) {
 		$('body').toggleClass('loading', toggle);
