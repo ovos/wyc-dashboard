@@ -15,6 +15,6 @@ export const api = {
 		'step_goal_3_reached'
 	],
 	filters: [
-		'filter[created_on][gt]=2019-07-30'
+		'filter[created_on][gt]=2019-09-15'
 	]
 };
