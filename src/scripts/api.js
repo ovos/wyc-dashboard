@@ -2,6 +2,8 @@ export const api = {
 	token: 'HLYC7Vt!%zKy&nFN5XVJwgtgx!jF5#t2#bF+',
 	baseUrl: 'https://data-time2walk.ovos.at/_/items/',
 	endpoint: 'user',
+	meta: '*',
+	limit: 20, // defaults to 200, use -1 for no limit
 	fields: [
 		'steps_total',
 		'steps_daily_avg',

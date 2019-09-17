@@ -10,8 +10,12 @@ $(function () {
 	let dataUrl =
 		api.baseUrl +
 		api.endpoint +
-		'?fields=' + api.fields.join(',') +
+		'?meta=*' +
+		'&limit=' + api.limit +
+		'&fields=' + api.fields.join(',') +
 		'&' + api.filters.join('&');
+
+	let dashboardData = [];
 
 	let handleError = function() {
 		site.toggleApiError(true);
@@ -21,8 +25,18 @@ $(function () {
 			fetchData();
 		}, 14400000); // 1000 milliseconds * 60 seconds * 60 minutes * 4 hours
 	};
+	let handleResponse = function(response) {
+		dashboardData = dashboardData.concat(response.data);
+
+		if(response.meta.links.next) {
+			fetchData(response.meta.links.next)
+		} else {
+			handleSuccess(dashboardData);
+		}
+	};
 	let handleSuccess = function(data) {
 		site.init(data, options);
+		dashboardData = [];
 		site.toggleLoading(false);
 
 		setTimeout(function (){
@@ -30,20 +44,21 @@ $(function () {
 		}, 14400000); // 1000 milliseconds * 60 seconds * 60 minutes * 4 hours
 	};
 
-	let fetchData = function (){
+	let fetchData = function (aUrl = null){
 		site.toggleLoading(true);
+		let url = aUrl ? aUrl : dataUrl;
 		$.ajax({
 			type: 'GET',
-			url: dataUrl,
+			url: url,
 			headers: {
 				"Authorization": 'Bearer ' + api.token
 			},
 			complete: function (jqXHR, status) {
-				if(status !== 'success') {
+				let response = jqXHR.responseJSON;
+				if(status !== 'success' || (typeof response.data == 'undefined') || (typeof response.meta == 'undefined')) {
 					handleError();
 				}
-				let response = jqXHR.responseJSON;
-				handleSuccess(response.data);
+				handleResponse(response);
 			}
 		});
 	};
