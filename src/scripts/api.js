@@ -3,7 +3,7 @@ export const api = {
 	baseUrl: 'https://data-time2walk.ovos.at/_/items/',
 	endpoint: 'user',
 	meta: '*',
-	limit: 20, // defaults to 200, use -1 for no limit
+	limit: 150, // defaults to 200, use -1 for no limit
 	fields: [
 		'steps_total',
 		'steps_daily_avg',
