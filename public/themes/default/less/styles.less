@@ -113,7 +113,7 @@ body {
 #content {
 	position: relative;
 	flex: 1 1 100%;
-	padding: 40px 20px;
+	padding: 30px 20px;
 	display: flex;
 	flex-flow: column nowrap;
 	justify-content: flex-start;
@@ -137,9 +137,23 @@ body {
 
 	.content-legend {
 		text-align: center;
-		margin: 0 auto 20px;
+		margin: 0 auto;
 		flex: 0 0 auto;
 		text-shadow: -1px 1px 5px #fff, 1px -1px 5px #fff, -1px -1px 5px #fff, 1px 1px 5px #fff;
+
+		&.content-legend-top {
+			margin-bottom: 20px;
+			.box();
+			padding: 10px 15px;
+		}
+		&.content-legend-bottom {
+			margin-top: 20px;
+			font-size: 16px;
+		}
+	}
+
+	#user-count-users {
+		font-weight: bold;
 	}
 
 	.stats {
