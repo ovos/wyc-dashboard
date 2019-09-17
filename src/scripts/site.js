@@ -211,7 +211,7 @@ export let site = {
 				enabled: false,
 			},
 			series: [{
-				name: 'Ziel erreicht',
+				name: 'Anzahl Ziel erreicht',
 				data: [filteredData.step_goal_1_reached, filteredData.step_goal_2_reached, filteredData.step_goal_3_reached]
 			}],
 			xaxis: {
@@ -240,7 +240,7 @@ export let site = {
 				},
 			},
 			title: {
-				text: "Erreichte Schritt-Tagesziele*",
+				text: "Erreichte Schritt-Tagesziele aller SpielerInnen",
 				align: 'center',
 				margin: 40,
 				offsetX: 0,
@@ -252,16 +252,32 @@ export let site = {
 				},
 			},
 			subtitle: {
-				text: "*individuell nach Fußgehertyp",
+				text: "Ziele sind individuell je nach Fußgehertyp",
 				align: 'center',
 				margin: 0,
 				offsetX: 0,
-				offsetY: 50,
+				offsetY: (450 - 23),
 				floating: false,
 				style: {
 					fontSize: '16px',
 					color: '#000'
 				},
+			},
+			legend: {
+				show: true,
+				showForSingleSeries: true,
+				position: 'top',
+				horizontalAlign: 'left',
+				floating: true,
+				offsetX: -18,
+				offsetY: -47,
+				fontSize: '16px',
+				markers: {
+					width: 0,
+					height: 0,
+					strokeWidth: 0,
+					strokeColor: 'rgba(0,0,0,0)'
+				}
 			}
 		},
 			stepGoalsBarsChart;
