@@ -375,9 +375,10 @@ export let site = {
 			];
 		$lastUpdateValue.html(/*datevalues.join('.') + */ 'heute ' + dateTimeValues.join(':'));
 
-		let $stepsTotal = $('#steps-total');
+		let $stepsTotal = $('#steps-total'),
+			metersTotal = filteredData.steps_total * step_length;
 		$('.value', $stepsTotal).html(filteredData.steps_total.toLocaleString('de-DE'));
-		$('.value-meter', $stepsTotal).html(`ca. ${Math.round(filteredData.steps_total * step_length / 1000).toLocaleString('de-DE')} km`);
+		$('.value-meter', $stepsTotal).html(`ca. ${Math.round(metersTotal / 1000).toLocaleString('de-DE')} km`);
 
 		let $stepsAvg = $('#steps-avg');
 		$('.value', $stepsAvg).html(filteredData.steps_avg.toLocaleString('de-DE'));
@@ -396,6 +397,15 @@ export let site = {
 
 		let $checkinsAvg = $('#checkins-avg');
 		$('.value', $checkinsAvg).html(filteredData.checkins_avg.toLocaleString('de-DE'));
+
+		let $savingsCo2Total = $('#savings-co2-total');
+		$('.value', $savingsCo2Total).html(`${(Math.round((metersTotal * 0.000147) * 100) / 100).toLocaleString('de-DE')} kg`);
+
+		let $savingsParticulateMatterTotal = $('#savings-particulate-matter-total');
+		$('.value', $savingsParticulateMatterTotal).html(`${(Math.round((metersTotal * 0.000058) * 100) / 100).toLocaleString('de-DE')} g`);
+
+		let $calorieConsumptionTotal = $('#calorie-consumption-total');
+		$('.value', $calorieConsumptionTotal).html(`${Math.round(filteredData.steps_total * 0.03).toLocaleString('de-DE')} kcal`);
 
 		// toggle stats and charts visibility
 		$('.stats > *, .charts > *', '#content').each(function(){
