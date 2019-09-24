@@ -87,10 +87,10 @@ body.api-error:after {
 #header {
   position: relative;
   z-index: 1;
-  -webkit-box-flex: 1;
-  -webkit-flex: 1 1 auto;
-  -ms-flex: 1 1 auto;
-  flex: 1 1 auto;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 1 auto;
+  -ms-flex: 0 1 auto;
+  flex: 0 1 auto;
   padding: 20px 20px;
   background: #ffffff;
   -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
@@ -110,9 +110,9 @@ body.api-error:after {
 #content {
   position: relative;
   -webkit-box-flex: 1;
-  -webkit-flex: 1 1 100%;
-  -ms-flex: 1 1 100%;
-  flex: 1 1 100%;
+  -webkit-flex: 1 0 auto;
+  -ms-flex: 1 0 auto;
+  flex: 1 0 auto;
   padding: 30px 20px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -142,6 +142,10 @@ body.api-error:after {
 #content > * {
   position: relative;
   z-index: 1;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 0 auto;
+  -ms-flex: 1 0 auto;
+  flex: 1 0 auto;
 }
 #content .content-legend {
   text-align: center;
@@ -294,10 +298,10 @@ body.api-error:after {
 #footer {
   position: relative;
   z-index: 1;
-  -webkit-box-flex: 1;
-  -webkit-flex: 1 1 auto;
-  -ms-flex: 1 1 auto;
-  flex: 1 1 auto;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 1 auto;
+  -ms-flex: 0 1 auto;
+  flex: 0 1 auto;
   padding: 20px 20px;
   text-align: center;
   background: #ffffff;
