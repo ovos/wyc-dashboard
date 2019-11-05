@@ -1,6 +1,5 @@
 import jQuery from 'jquery';
 window.$ = window.jQuery = jQuery;
-// import {data} from './data.js';
 import {site} from './site.js';
 import {api} from './api.js';
 import {options} from './options.js';

@@ -161,7 +161,11 @@ export let site = {
 				offsetX: 0,
 				offsetY: 0,
 				formatter: function (val, opts) {
-					return opts.w.globals.series[opts.seriesIndex] + '% (' + val + ')'
+					let total = 0;
+					opts.w.globals.series.forEach(function (series, index) {
+						total += series;
+					});
+					return (Math.round((opts.w.globals.series[opts.seriesIndex] / total) * 1000) / 10) + '% (' + val + ')'
 				},
 				floating: false,
 			},
@@ -327,7 +331,11 @@ export let site = {
 					offsetX: 0,
 					offsetY: 0,
 					formatter: function (val, opts) {
-						return opts.w.globals.series[opts.seriesIndex] + '% (' + val + ')'
+						let total = 0;
+						opts.w.globals.series.forEach(function (series, index) {
+							total += series;
+						});
+						return (Math.round((opts.w.globals.series[opts.seriesIndex] / total) * 1000) / 10) + '% (' + val + ')'
 					},
 					floating: false,
 				},
