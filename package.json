@@ -28,7 +28,7 @@
     "gulp-plumber": "^1.2.1",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-util": "^3.0.8",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "less-plugin-autoprefix": "^2.0.0",
     "parse-less-import": "^0.0.1",
     "webpack": "^4.39.1",
